@@ -4,7 +4,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //입력받기
+        Scanner sc = new Scanner(System.in);
         int number;
+
         do {
             System.out.println("[ SHAKESHACK MENU ]");
             System.out.println("1. ShackBurger   | W 6.9 | 토마토, 양상추, 쉑소스가 토핑된 치즈버거");
@@ -14,8 +17,7 @@ public class Main {
             System.out.println("0. 종료      | 종료");
 
             System.out.println("메뉴를 선택해 주세요");
-            //입력받기
-            Scanner sc = new Scanner(System.in);
+
             number = sc.nextInt();
 
             switch (number) {
