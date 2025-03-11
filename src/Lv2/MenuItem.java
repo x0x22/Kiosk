@@ -18,6 +18,7 @@ public class MenuItem {
         this.description = description;
     }
 
+    // 게터
     public String getName() {
         return name;
     }
@@ -29,8 +30,8 @@ public class MenuItem {
     public String getDescription() {
         return description;
     }
-    //기능
 
+    //기능
     public void display() {
         System.out.println(name + " | W " + price + " | " + description);
     }

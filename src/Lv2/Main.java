@@ -25,7 +25,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int select;
 
-
         do {
             System.out.println("[ SHAKESHACK MENU ]");
             // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력
@@ -38,7 +37,8 @@ public class Main {
 
             select = sc.nextInt();
             sc.nextLine();
-
+            
+            // 예외처리
             if (select >= 1 && select <= menuItems.size()) {
                 MenuItem selectedMenu = menuItems.get(select - 1);
                 System.out.println("[선택한 메뉴를 확인해주세요]");
