@@ -9,7 +9,9 @@ public class Kiosk {
     // List를 선언하여 여러 MenuItem을 추가
     private List<MenuItem> menuItems = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
+    int select;
 
+    //List<MenuItem> menuItems 는 Kiosk 클래스 생성자를 통해 값을 할당
     public Kiosk() {
         // add 함수를 통해 new MenuItem(이름, 가격, 설명) List 에 삽입
         MenuItem menuItem1 = new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거");
@@ -23,31 +25,36 @@ public class Kiosk {
         menuItems.add(menuItem4);
     }
 
-    // Scanner 선언
-    int select;
+    // 기능 main 함수에서 관리하던 입력과 반복문 로직은 이제 start 함수를 만들어 관리
+    public void start(){
+        do {
+            System.out.println("[ SHAKESHACK MENU ]");
+            // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력
+            for (int num = 0; num < menuItems.size(); num++) {
+                MenuItem item = menuItems.get(num);
+                System.out.println((num + 1) + ". " + item.getName() + " | W " + item.getPrice() + " | " + item.getDescription());
+            }
+            System.out.println("0. 종료      | 종료");
+            System.out.println("메뉴를 선택해 주세요");
 
-        do
+            select = sc.nextInt();
+            sc.nextLine();
 
-    {
-        System.out.println("[ SHAKESHACK MENU ]");
-        // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력
-        for (int num = 0; num < menuItems.size(); num++) {
-            MenuItem item = menuItems.get(num);
-            System.out.println((num + 1) + ". " + item.getName() + " | W " + item.getPrice() + " | " + item.getDescription());
-        }
-        System.out.println("0. 종료      | 종료");
-        System.out.println("메뉴를 선택해 주세요");
+            // 예외처리
+            if (select >= 1 && select <= menuItems.size()) {
+                MenuItem selectedMenu = menuItems.get(select - 1);
+                System.out.println("[선택한 메뉴를 확인해주세요]");
+                selectedMenu.display();
+            } else if (select != 0) {
+                System.out.println("다시 선택해주세요");
+            }
+        } while(select !=0);
+        System.out.println("키오스크를 종룝합니다.");
+    }
 
-        select = sc.nextInt();
-        sc.nextLine();
-
-        // 예외처리
-        if (select >= 1 && select <= menuItems.size()) {
-            MenuItem selectedMenu = menuItems.get(select - 1);
-            System.out.println("[선택한 메뉴를 확인해주세요]");
-            selectedMenu.display();
-        } else if (select != 0) {
-            System.out.println("다시 선택해주세요");
-        }
-    } while(select !=0);
+    // 키오스크 실행 메서드
+    public static void main(String[] arg){
+        Kiosk kiosk = new Kiosk();
+        kiosk.start();
+    }
 }
