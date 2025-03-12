@@ -26,7 +26,7 @@ public class Kiosk {
     }
 
     // 기능 main 함수에서 관리하던 입력과 반복문 로직은 이제 start 함수를 만들어 관리
-    public void start(){
+    public void start() {
         do {
             System.out.println("[ SHAKESHACK MENU ]");
             // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력
@@ -48,13 +48,7 @@ public class Kiosk {
             } else if (select != 0) {
                 System.out.println("다시 선택해주세요");
             }
-        } while(select !=0);
-        System.out.println("키오스크를 종룝합니다.");
-    }
-
-    // 키오스크 실행 메서드
-    public static void main(String[] arg){
-        Kiosk kiosk = new Kiosk();
-        kiosk.start();
+        } while (select != 0);
+        System.out.println("키오스크를 종료합니다.");
     }
 }

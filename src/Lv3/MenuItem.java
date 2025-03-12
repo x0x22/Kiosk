@@ -35,6 +35,4 @@ public class MenuItem {
     public void display() {
         System.out.println(name + " | W " + price + " | " + description);
     }
-
-
 }

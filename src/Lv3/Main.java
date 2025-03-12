@@ -6,8 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-            Kiosk kiosk = new Kiosk();
-            kiosk.start();
+        Kiosk kiosk = new Kiosk();
+        kiosk.start();
     }
 }
