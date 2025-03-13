@@ -47,7 +47,12 @@ public class Kiosk {
                 break;
             } else if (select > 0 && select <= menuItems.size()) {
                 MenuItem selected = menuItems.get(select - 1);
-                System.out.println(selected.getName() + " | W " + selected.getPrice() + " | " + selected.getDescription());
+                if (selectCheck(selected)){
+                    System.out.println("주문 완료");
+                    break;
+                } else {
+                    System.out.println("메뉴를 선택해주세요");
+                }
             } else {
                 System.out.println("번호를 확인해주세요.");
             }
@@ -65,6 +70,21 @@ public class Kiosk {
             int num = sc.nextInt();
             sc.nextLine();
             return num;
+        }
+    }
+    private boolean selectCheck(MenuItem item) {
+        while (true) {
+            System.out.println(item.getName() + " | W " + item.getPrice() + " | " + item.getDescription());
+            System.out.println("주문하시겠습니까? (Y/N)");
+            String check = sc.next();
+
+            if (check.equals("Y")) {
+                return true;
+            } else if(check.equals("N")) {
+                return false;
+            } else {
+                System.out.println("Y 또는 N 을 입력해주세요");
+            }
         }
     }
 }
