@@ -39,7 +39,7 @@ public class Main {
             sc.nextLine();
             
             // 예외처리
-            if (select >= 1 && select <= menuItems.size()) {
+            if (1 <= select && select <= menuItems.size()) {
                 MenuItem selectedMenu = menuItems.get(select - 1);
                 System.out.println("[선택한 메뉴를 확인해주세요]");
                 selectedMenu.display();
