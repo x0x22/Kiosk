@@ -14,16 +14,20 @@ public class Kiosk {
     public Kiosk() {
         menu = new ArrayList<>();
 
-        MenuItem buger = new MenuItem();
+        // BURGER 카테고리
+        Menu burgerMenu = new Menu("[ BURGER ]");
+
         MenuItem menuItem1 = new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거");
         MenuItem menuItem2 = new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거");
         MenuItem menuItem3 = new MenuItem("Cheeseburger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거");
         MenuItem menuItem4 = new MenuItem("Hamburger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거");
 
-        menuItems.add(menuItem1);
-        menuItems.add(menuItem2);
-        menuItems.add(menuItem3);
-        menuItems.add(menuItem4);
+        burgerMenu.addMenuItem(menuItem1);
+
+        menu.add(burgerMenu);
+
+        //DRINK 카테고리
+        Menu drink = new Menu("[DRINK]");
     }
 
     // 기능 main 함수에서 관리하던 입력과 반복문 로직은 이제 start 함수를 만들어 관리
