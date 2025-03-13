@@ -9,7 +9,6 @@ public class Kiosk {
     // List를 선언하여 여러 MenuItem을 추가
     private List<MenuItem> menuItems = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
-    int select;
 
     //List<MenuItem> menuItems 는 Kiosk 클래스 생성자를 통해 값을 할당
     public Kiosk() {
@@ -27,8 +26,10 @@ public class Kiosk {
 
     // 기능 main 함수에서 관리하던 입력과 반복문 로직은 이제 start 함수를 만들어 관리
     public void start() {
-        do {
+        while (true) {
+
             System.out.println("[ SHAKESHACK MENU ]");
+
             // 반복문을 활용해 List 안에 있는 MenuItem을 하나씩 출력
             for (int num = 0; num < menuItems.size(); num++) {
                 MenuItem item = menuItems.get(num);
@@ -37,18 +38,33 @@ public class Kiosk {
             System.out.println("0. 종료      | 종료");
             System.out.println("메뉴를 선택해 주세요");
 
-            select = sc.nextInt();
-            sc.nextLine();
+            // 선언과 초기화
+            int select = getUserSelect();
 
             // 예외처리
-            if (select >= 1 && select <= menuItems.size()) {
-                MenuItem selectedMenu = menuItems.get(select - 1);
-                System.out.println("[선택한 메뉴를 확인해주세요]");
-                selectedMenu.display();
-            } else if (select != 0) {
-                System.out.println("다시 선택해주세요");
+            if (select == 0) {
+                System.out.println("키오스크를 종료합니다.");
+                break;
+            } else if (select > 0 && select <= menuItems.size()) {
+                MenuItem selected = menuItems.get(select - 1);
+                System.out.println(selected.getName() + " | W " + selected.getPrice() + " | " + selected.getDescription());
+            } else {
+                System.out.println("번호를 확인해주세요.");
             }
-        } while (select != 0);
-        System.out.println("키오스크를 종료합니다.");
+        }
+    }
+
+    private int getUserSelect() {
+        while (true) {
+            if (!sc.hasNextInt()) {
+                System.out.println("잘못된 입력입니다. 숫자를 입력하세요.");
+                sc.nextLine();
+                System.out.println("다시 입력해주세요");
+                continue;
+            }
+            int num = sc.nextInt();
+            sc.nextLine();
+            return num;
+        }
     }
 }
