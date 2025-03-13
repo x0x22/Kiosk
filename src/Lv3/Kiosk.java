@@ -64,7 +64,6 @@ public class Kiosk {
             if (!sc.hasNextInt()) {
                 System.out.println("잘못된 입력입니다. 숫자를 입력하세요.");
                 sc.nextLine();
-                System.out.println("다시 입력해주세요");
                 continue;
             }
             int num = sc.nextInt();
@@ -77,6 +76,7 @@ public class Kiosk {
             System.out.println(item.getName() + " | W " + item.getPrice() + " | " + item.getDescription());
             System.out.println("주문하시겠습니까? (Y/N)");
             String check = sc.next();
+            sc.nextLine();
 
             if (check.equals("Y")) {
                 return true;

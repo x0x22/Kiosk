@@ -31,8 +31,4 @@ public class MenuItem {
         return description;
     }
 
-    //기능
-    public void display() {
-        System.out.println(name + " | W " + price + " | " + description);
-    }
 }
