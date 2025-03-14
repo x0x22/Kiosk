@@ -45,7 +45,7 @@
             return num;
         }
 
-### boolean으로 메뉴 선택 확인
+### 메뉴 선택 확인 메서드
 
     private boolean selectCheck(MenuItem item) {
         while (true) {
